@@ -44,7 +44,7 @@ public class Ship {
     }
 
     public void putMastAt(int x, int y) {
-        masts.put(x , y, Consts.SHIP_TILE);
+        masts.put(x , y, Consts.BOARD_TILE.SHIP_TILE.value);
     }
 
     /**
@@ -53,39 +53,39 @@ public class Ship {
      * @param y - współrzędna Y kafelka statku.
      * @return 3 - trafiony już trafiony, 2 - trafiony/zatopiony, 1 - trafiony, 0 - pudło.
      */
-    public int hitAt(int x, int y) {
+    public Consts.HIT_RESULT hitAt(int x, int y) {
         Set<Table.Cell<Integer, Integer, Integer>> cellSet = masts.cellSet();
         for(Table.Cell tableCell : cellSet) {
             int cellX = Integer.parseInt(String.valueOf(tableCell.getRowKey()));
             int cellY = Integer.parseInt(String.valueOf(tableCell.getColumnKey()));
 
             if (cellX == x && cellY == y) {
-                if (tableCell.getValue() == Consts.BLANK_TILE) {
-                    return Consts.MISS;
+                if ((int) tableCell.getValue() == Consts.BOARD_TILE.BLANK_TILE.value) {
+                    return Consts.HIT_RESULT.MISS;
                 }
-                if (tableCell.getValue() == Consts.HIT_TILE) {
-                    return Consts.ALREADY_HIT;
+                if ((int) tableCell.getValue() == Consts.BOARD_TILE.HIT_TILE.value) {
+                    return Consts.HIT_RESULT.ALREADY_HIT;
                 }
-                if (tableCell.getValue() == Consts.SHIP_TILE) {
+                if ((int) tableCell.getValue() == Consts.BOARD_TILE.SHIP_TILE.value) {
                     masts.remove(x, y);
-                    masts.put(x, y, Consts.HIT_TILE);
+                    masts.put(x, y, Consts.BOARD_TILE.HIT_TILE.value);
                     Set<Table.Cell<Integer, Integer, Integer>> cellSet2 = masts.cellSet();
                     for(Table.Cell tableCell2 : cellSet2) {
-                        if (tableCell2.getValue() == Consts.SHIP_TILE) {
-                            return Consts.HIT;
+                        if ((int) tableCell2.getValue() == Consts.BOARD_TILE.SHIP_TILE.value) {
+                            return Consts.HIT_RESULT.HIT;
                         }
                     }
-                    return Consts.HIT_AND_SUNK;
+                    return Consts.HIT_RESULT.HIT_AND_SUNK;
                 }
             }
         }
 
-        return Consts.MISS;
+        return Consts.HIT_RESULT.MISS;
     }
 
     public boolean isSunk() {
         for (Table.Cell<Integer, Integer, Integer> cell : masts.cellSet()) {
-            if (cell.getValue() == Consts.SHIP_TILE) {
+            if (cell.getValue() == Consts.BOARD_TILE.SHIP_TILE.value) {
                 return false;
             }
         }

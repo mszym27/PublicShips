@@ -12,7 +12,7 @@ public class ShipTests {
         ship.putMastAt(0,0);
         ship.putMastAt(0,1);
 
-        Assertions.assertEquals(ship.hitAt(0,0), Consts.HIT);
+        Assertions.assertEquals(ship.hitAt(0,0), Consts.HIT_RESULT.HIT);
     }
 
     @Test
@@ -22,7 +22,7 @@ public class ShipTests {
         ship.putMastAt(0,1);
         ship.hitAt(0, 0);
 
-        Assertions.assertEquals(ship.hitAt(0,1), Consts.HIT_AND_SUNK);
+        Assertions.assertEquals(ship.hitAt(0,1), Consts.HIT_RESULT.HIT_AND_SUNK);
     }
 
     @Test
@@ -32,7 +32,7 @@ public class ShipTests {
         ship.putMastAt(0,1);
         ship.hitAt(0, 0);
 
-        Assertions.assertEquals(ship.hitAt(0,0), Consts.ALREADY_HIT);
+        Assertions.assertEquals(ship.hitAt(0,0), Consts.HIT_RESULT.ALREADY_HIT);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class ShipTests {
         ship.putMastAt(0,1);
         ship.hitAt(0, 0);
 
-        Assertions.assertEquals(ship.hitAt(0,3), Consts.MISS);
+        Assertions.assertEquals(ship.hitAt(0,3), Consts.HIT_RESULT.MISS);
     }
 
     @Test
@@ -53,7 +53,7 @@ public class ShipTests {
         ship.hitAt(0, 0);
         ship.hitAt(0, 1);
 
-        Assertions.assertEquals(ship.hitAt(0,2), Consts.MISS);
+        Assertions.assertEquals(ship.hitAt(0,2), Consts.HIT_RESULT.MISS);
     }
 
     @Test

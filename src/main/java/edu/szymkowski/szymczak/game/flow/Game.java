@@ -164,7 +164,7 @@ public class Game {
 
     public static void placeShipTile(GridPane gridPane, int x, int y) {
         TextFlow textFlow = new TextFlow();
-        textFlow.setAccessibleText(String.valueOf(Consts.SHIP_TILE));
+        textFlow.setAccessibleText(String.valueOf(Consts.BOARD_TILE.SHIP_TILE));
         Game.replaceGridPaneChildAt(gridPane, textFlow, x , y);
     }
 
@@ -174,29 +174,29 @@ public class Game {
      * @param y - wspolrzedna Y.
      * @return -1 - w razie błędu, 0 - pudło, 1 - trafienie, 2 - trafienie i zatopienie, 3 - trafienie w trafiony.
      */
-    public int shotAt(Integer x, Integer y) {
+    public Consts.HIT_RESULT shotAt(Integer x, Integer y) {
 
         for (Ship ship: ships) {
-            int hitCode = ship.hitAt(x, y);
-            if (hitCode == Consts.ALREADY_HIT) {
+            var hitCode = ship.hitAt(x, y);
+            if (hitCode == Consts.HIT_RESULT.ALREADY_HIT) {
                 score.addEventRecord(LocalDate.now()+ " " + LocalTime.now().format(DateTimeFormatter.ofPattern("hh-m-s-n")) + ": " + "Ship number: " + ship.getShipId() + " of type: " + ship.getShipType()+ " was hit again on X: " + x + " and Y: " + y + ".");
-                return Consts.ALREADY_HIT;
+                return Consts.HIT_RESULT.ALREADY_HIT;
             }
-            if (hitCode == Consts.MISS) {
+            if (hitCode == Consts.HIT_RESULT.MISS) {
                 score.addEventRecord(LocalDate.now()+ " " + LocalTime.now().format(DateTimeFormatter.ofPattern("hh-m-s-n")) + ": " + "Missed shot on X: " + x + " and Y: " + y + ".");
-                return Consts.MISS;
+                return Consts.HIT_RESULT.MISS;
             }
-            if (hitCode == Consts.HIT_AND_SUNK) {
+            if (hitCode == Consts.HIT_RESULT.HIT_AND_SUNK) {
                 score.addEventRecord(LocalDate.now()+ " " + LocalTime.now().format(DateTimeFormatter.ofPattern("hh-m-s-n")) + ": " + "Hit and sunk! Ship number: " + ship.getShipId() + " of type: " + ship.getShipType()+ " was hit and sunk on X: " + x + " and Y: " + y + ".");
-                return Consts.HIT_AND_SUNK;
+                return Consts.HIT_RESULT.HIT_AND_SUNK;
             }
-            if (hitCode == Consts.HIT) {
+            if (hitCode == Consts.HIT_RESULT.HIT) {
                 score.addEventRecord(LocalDate.now()+ " " + LocalTime.now().format(DateTimeFormatter.ofPattern("hh-m-s-n")) + ": " + "Hit! Ship number: " + ship.getShipId() + " of type: " + ship.getShipType()+ " was hit on X: " + x + " and Y: " + y + ".");
-                return Consts.HIT;
+                return Consts.HIT_RESULT.HIT;
             }
         }
 
-        return -1;
+        return Consts.HIT_RESULT.UNKNOWN;
     }
 
     public boolean isEnd() {

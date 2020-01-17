@@ -206,7 +206,7 @@ public class StageController {
             for (int k = 0; k < boardWidth; k++) {
                 //TextFlow do przechowywania koloru oraz rodzaju kafelka.
                 TextFlow textFlow = new TextFlow();
-                textFlow.setAccessibleText(String.valueOf(Consts.BLANK_TILE));
+                textFlow.setAccessibleText(String.valueOf(Consts.BOARD_TILE.BLANK_TILE));
                 board.add(textFlow, k , i);
             }
         }
@@ -333,16 +333,16 @@ public class StageController {
                     Integer X = getX(mouseEvent);
                     Integer Y = getY(mouseEvent);
                     switch (game.shotAt(X, Y)) {
-                        case Consts.HIT:
+                        case HIT:
                             tileNode.setStyle(Consts.HIT_TILE_COLOR);
                             break;
-                        case Consts.HIT_AND_SUNK:
+                        case HIT_AND_SUNK:
                             tileNode.setStyle(Consts.HIT_TILE_COLOR);
                             break;
-                        case Consts.MISS:
+                        case MISS:
                             tileNode.setStyle(Consts.MISS_TILE_COLOR);
                             break;
-                        case Consts.ALREADY_HIT:
+                        case ALREADY_HIT:
                             break;
                     }
                     messageBox.appendText("\n" + game.getScore().getHistory().get(game.getScore().getHistory().size() - 1));
@@ -355,12 +355,12 @@ public class StageController {
                 else {
                     //JavaFx jest tak wygodna, że nie możemy się odwołać do kafelków GridPane za pomocą koordynatów,
                     TextFlow tileNode = getTile(mouseEvent);
-                    if (tileNode.getAccessibleText().equals(String.valueOf(Consts.SHIP_TILE))) {
-                        tileNode.setAccessibleText(String.valueOf(Consts.BLANK_TILE));
+                    if (tileNode.getAccessibleText().equals(String.valueOf(Consts.BOARD_TILE.SHIP_TILE))) {
+                        tileNode.setAccessibleText(String.valueOf(Consts.BOARD_TILE.BLANK_TILE));
                         tileNode.setStyle("");
                     }
                     else {
-                        tileNode.setAccessibleText(String.valueOf(Consts.SHIP_TILE));
+                        tileNode.setAccessibleText(String.valueOf(Consts.BOARD_TILE.SHIP_TILE));
                         tileNode.setStyle(Consts.PLACE_SHIP_TILE_COLOR);
                     }
                 }

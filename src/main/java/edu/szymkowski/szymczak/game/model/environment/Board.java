@@ -33,58 +33,58 @@ public class Board {
 
         for (int i = 0; i < boardWidth; i++) {
             for (int k = 0; k < boardLength; k++) {
-                if (hitTable.get(i, k) == Consts.SHIP_TILE) {
+                if (hitTable.get(i, k) == Consts.BOARD_TILE.SHIP_TILE) {
                     boolean isVerticalShip = true;
                     boolean isShipOrientationSet = false;
                     if (i - 1 >= 0) {
-                        if (hitTable.get(i - 1, k) == Consts.SHIP_TILE) {
+                        if (hitTable.get(i - 1, k) == Consts.BOARD_TILE.SHIP_TILE) {
                             isShipOrientationSet = true;
                         }
                     }
                     if (i - 1 >= 0 && k + 1 < boardWidth) {
-                        if (hitTable.get(i - 1, k + 1) == Consts.SHIP_TILE) {
+                        if (hitTable.get(i - 1, k + 1) == Consts.BOARD_TILE.SHIP_TILE) {
                             return false;
                         }
                     }
                     if (k + 1 < boardWidth) {
-                        if (hitTable.get(i, k + 1) == Consts.SHIP_TILE && isVerticalShip && isShipOrientationSet) {
+                        if (hitTable.get(i, k + 1) == Consts.BOARD_TILE.SHIP_TILE && isVerticalShip && isShipOrientationSet) {
                             return false;
                         }
-                        else if (hitTable.get(i, k + 1) == Consts.SHIP_TILE && !isShipOrientationSet){
+                        else if (hitTable.get(i, k + 1) == Consts.BOARD_TILE.SHIP_TILE && !isShipOrientationSet){
                             isVerticalShip = false;
                             isShipOrientationSet = true;
                         }
                     }
                     if (i + 1 < boardLength && k + 1 < boardWidth) {
-                        if (hitTable.get(i + 1, k + 1) == Consts.SHIP_TILE) {
+                        if (hitTable.get(i + 1, k + 1) == Consts.BOARD_TILE.SHIP_TILE) {
                             return false;
                         }
                     }
                     if (i + 1 < boardLength) {
-                        if (hitTable.get(i + 1, k) == Consts.SHIP_TILE && isShipOrientationSet && !isVerticalShip) {
+                        if (hitTable.get(i + 1, k) == Consts.BOARD_TILE.SHIP_TILE && isShipOrientationSet && !isVerticalShip) {
                             return false;
                         }
-                        else if (hitTable.get(i + 1, k) == Consts.SHIP_TILE && !isShipOrientationSet) {
+                        else if (hitTable.get(i + 1, k) == Consts.BOARD_TILE.SHIP_TILE && !isShipOrientationSet) {
                             isVerticalShip = true;
                             isShipOrientationSet = true;
                         }
                     }
                     if (i + 1 >= 0 && k - 1 >= 0) {
-                        if (hitTable.get(i + 1, k - 1) == Consts.SHIP_TILE) {
+                        if (hitTable.get(i + 1, k - 1) == Consts.BOARD_TILE.SHIP_TILE) {
                             return false;
                         }
                     }
                     if (k - 1 >= 0) {
-                        if (hitTable.get(i, k - 1) == Consts.SHIP_TILE && isShipOrientationSet && isVerticalShip) {
+                        if (hitTable.get(i, k - 1) == Consts.BOARD_TILE.SHIP_TILE && isShipOrientationSet && isVerticalShip) {
                             return false;
                         }
-                        else if (hitTable.get(i, k - 1) == Consts.SHIP_TILE && !isShipOrientationSet) {
+                        else if (hitTable.get(i, k - 1) == Consts.BOARD_TILE.SHIP_TILE && !isShipOrientationSet) {
                             isVerticalShip = false;
                             isShipOrientationSet = true;
                         }
                     }
                     if (i - 1 >= 0 && k - 1 >= 0) {
-                        if (hitTable.get(i - 1, k - 1) == Consts.SHIP_TILE) {
+                        if (hitTable.get(i - 1, k - 1) == Consts.BOARD_TILE.SHIP_TILE) {
                             return false;
                         }
                     }
@@ -105,15 +105,15 @@ public class Board {
         for (int i = 0; i < boardLength; i++) {
             for (int k = 0; k < boardWidth; k++) {
                 Ship ship = new Ship();
-                if (shipTable.get(i, k).intValue() == Consts.SHIP_TILE) {
+                if (shipTable.get(i, k).intValue() == Consts.BOARD_TILE.SHIP_TILE.value) {
                     ship.putMastAt(i, k);
-                    shipTable.put(i, k, Consts.BLANK_TILE);
+                    shipTable.put(i, k, Consts.BOARD_TILE.BLANK_TILE.value);
                     if (k + 1 < boardWidth) {
-                        if (shipTable.get(i, k + 1).intValue() == Consts.SHIP_TILE) {
+                        if (shipTable.get(i, k + 1).intValue() == Consts.BOARD_TILE.SHIP_TILE.value) {
                             for (int s = k + 1; s < boardWidth; s++) {
-                                if (shipTable.get(i, s).intValue() == Consts.SHIP_TILE) {
+                                if (shipTable.get(i, s).intValue() == Consts.BOARD_TILE.SHIP_TILE.value) {
                                     ship.putMastAt(i, s);
-                                    shipTable.put(i, s, Consts.BLANK_TILE);
+                                    shipTable.put(i, s, Consts.BOARD_TILE.BLANK_TILE.value);
                                 }
                                 else {
                                     break;
@@ -122,11 +122,11 @@ public class Board {
                         }
                     }
                     if (i + 1 < boardLength) {
-                        if (shipTable.get(i + 1, k).intValue() == Consts.SHIP_TILE) {
+                        if (shipTable.get(i + 1, k).intValue() == Consts.BOARD_TILE.SHIP_TILE.value) {
                             for (int s = i + 1; s < boardLength; s++) {
-                                if (shipTable.get(s, k).intValue() == Consts.SHIP_TILE) {
+                                if (shipTable.get(s, k).intValue() == Consts.BOARD_TILE.SHIP_TILE.value) {
                                     ship.putMastAt(s, k);
-                                    shipTable.put(s, k, Consts.BLANK_TILE);
+                                    shipTable.put(s, k, Consts.BOARD_TILE.BLANK_TILE.value);
                                 }
                                 else {
                                     break;

@@ -22,14 +22,37 @@ public final class Consts {
 
     public static final int PREF_TILE_WIDTH = 20;
 
-    public static final Integer BLANK_TILE = 0;
+    public enum BOARD_TILE
+    {
 
-    public static final Integer SHIP_TILE = 1;
 
-    public static final Integer MISS_TILE = 2;
+        BLANK_TILE(0),
+        SHIP_TILE(1),
+        MISS_TILE(2),
+        HIT_TILE(3);
 
-    public static final Integer HIT_TILE = 3;
+        public final Integer value;
 
+
+        public String toString()
+        {
+            return this.value.toString();
+        }
+
+        private BOARD_TILE(Integer value) {
+            this.value = value;
+        }
+    }
+
+/*
+    public enum BOARD_TILE
+    {
+        BLANK_TILE,
+        SHIP_TILE,
+        MISS_TILE,
+        HIT_TILE
+    }
+*/
     public static final int SMALL_SHIP_LENGTH = 1;
 
     public static final int MEDIUM_SHIP_LENGTH = 2;
@@ -38,13 +61,14 @@ public final class Consts {
 
     public static final int BIGGEST_SHIP_LENGTH = 4;
 
-    public static final int MISS = 0;
-
-    public static final int HIT = 1;
-
-    public static final int HIT_AND_SUNK = 2;
-
-    public static final int ALREADY_HIT = 3;
+    public enum HIT_RESULT
+    {
+        MISS,
+        HIT,
+        HIT_AND_SUNK,
+        ALREADY_HIT,
+        UNKNOWN
+    }
 
     public static final String BLANK_TILE_COLOR = "-fx-background-color: white;";
 
@@ -65,6 +89,8 @@ public final class Consts {
     public static final String INVALID_SHIP_COUNT = "Niewłaściwa ilość statków.";
 
     public static final String GAME_START = "Rozpoczęcie gry!";
+
+
 
     public static final String SMALL_SHIP = "Pojedyńczy";
 
