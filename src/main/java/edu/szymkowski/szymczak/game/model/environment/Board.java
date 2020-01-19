@@ -134,7 +134,7 @@ public class Board {
                             }
                         }
                     }
-                    if (ship.getLength() > Consts.BIGGEST_SHIP_LENGTH) {
+                    if (ship.getLength() > Consts.SHIP_LENGTH.BIGGEST.value) {
                         throw new Exception(Consts.INVALID_SHIP_SIZE);
                     }
                     ship.setShipId(shipId);

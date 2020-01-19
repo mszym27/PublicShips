@@ -44,22 +44,22 @@ public final class Consts {
         }
     }
 
-/*
-    public enum BOARD_TILE
+    public enum SHIP_LENGTH
     {
-        BLANK_TILE,
-        SHIP_TILE,
-        MISS_TILE,
-        HIT_TILE
+
+
+        SMALL(1),
+        MEDIUM(2),
+        BIG(3),
+        BIGGEST(4);
+
+        public final int value;
+
+
+        private SHIP_LENGTH(int value) {
+            this.value = value;
+        }
     }
-*/
-    public static final int SMALL_SHIP_LENGTH = 1;
-
-    public static final int MEDIUM_SHIP_LENGTH = 2;
-
-    public static final int BIG_SHIP_LENGTH = 3;
-
-    public static final int BIGGEST_SHIP_LENGTH = 4;
 
     public enum HIT_RESULT
     {
@@ -84,7 +84,7 @@ public final class Consts {
 
     public static final String TILE_NOT_FOUND = "Nie odnaleziono kafelka.";
 
-    public static final String INVALID_SHIP_SIZE = "Wprowadzono statek niezgodny z maksymalną długością, wynoszącą:" + BIGGEST_SHIP_LENGTH + ".";
+    public static final String INVALID_SHIP_SIZE = "Wprowadzono statek niezgodny z maksymalną długością, wynoszącą:" + SHIP_LENGTH.BIGGEST + ".";
 
     public static final String INVALID_SHIP_COUNT = "Niewłaściwa ilość statków.";
 

@@ -29,16 +29,21 @@ public class Ship {
     }
 
     public String getShipType() {
-        switch (masts.size()) {
-            case Consts.SMALL_SHIP_LENGTH:
-                return Consts.SMALL_SHIP;
-            case Consts.MEDIUM_SHIP_LENGTH:
-                return Consts.MEDIUM_SHIP;
-            case Consts.BIG_SHIP_LENGTH:
-                return Consts.BIG_SHIP;
-            case Consts.BIGGEST_SHIP_LENGTH:
-                return Consts.BIGGEST_SHIP;
+        int mastsSize = masts.size();
+
+        if(mastsSize == Consts.SHIP_LENGTH.SMALL.value)
+        {
+            return Consts.SMALL_SHIP;
         }
+            else if (mastsSize == Consts.SHIP_LENGTH.MEDIUM.value) {
+                return Consts.MEDIUM_SHIP;
+            }
+                else if (mastsSize == Consts.SHIP_LENGTH.BIG.value) {
+                    return Consts.BIG_SHIP;
+                }
+                    else if (mastsSize == Consts.SHIP_LENGTH.BIGGEST.value) {
+                        return Consts.BIGGEST_SHIP;
+                    }
 
         return Consts.INVALID_SHIP;
     }
