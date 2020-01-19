@@ -124,7 +124,7 @@ public class StageController {
             printBoard();
         }
         else {
-            messageBox.appendText(Consts.SHIP_PLACEMENT_INVALID);
+            messageBox.appendText(Consts.ERROR_MESSAGE.SHIP_PLACEMENT_INVALID.value);
         }
 
         System.out.println(actionEvent.toString());
@@ -383,14 +383,14 @@ public class StageController {
             }
         }
 
-        throw new Exception(Consts.TILE_NOT_FOUND);
+        throw new Exception(Consts.ERROR_MESSAGE.TILE_NOT_FOUND.value);
     }
 
     private int getY(MouseEvent mouseEvent) throws Exception {
         Integer y = (int) mouseEvent.getX()/ Consts.PREF_TILE_HEIGHT;
 
         if (y > ((int) boardWidthSpinner.getValue() - 1)) {
-            throw new Exception(Consts.BOARD_SIZE_EXCEEDED);
+            throw new Exception(Consts.ERROR_MESSAGE.BOARD_SIZE_EXCEEDED.value);
         }
 
         return y;
@@ -400,7 +400,7 @@ public class StageController {
         Integer x = (int) mouseEvent.getY()/ Consts.PREF_TILE_WIDTH;
 
         if (x > ((int) boardLengthSpinner.getValue() - 1)) {
-            throw new Exception(Consts.BOARD_SIZE_EXCEEDED);
+            throw new Exception(Consts.ERROR_MESSAGE.BOARD_SIZE_EXCEEDED.value);
         }
 
         return x;

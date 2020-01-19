@@ -61,6 +61,42 @@ public final class Consts {
         }
     }
 
+    public enum SHIP_NAME
+    {
+
+
+        SMALL("Pojedyńczy"),
+        MEDIUM("Podwójny"),
+        BIG("Potrójny"),
+        BIGGEST("Poczwórny"),
+        INVALID("Nieprawidłowy");
+
+        public final String value;
+
+
+        private SHIP_NAME(String value) {
+            this.value = value;
+        }
+    }
+
+    public enum ERROR_MESSAGE
+    {
+
+
+        SHIP_PLACEMENT_INVALID("\nZłe rozmieszczenie statków. Proszę skorygować rozmieszczenie bądź ilość statków."),
+        BOARD_SIZE_EXCEEDED("Przekroczono granice planszy."),
+        TILE_NOT_FOUND("Nie odnaleziono kafelka."),
+        INVALID_SHIP_SIZE("Wprowadzono statek niezgodny z maksymalną długością, wynoszącą:" + SHIP_LENGTH.BIGGEST + "."),
+        INVALID_SHIP_COUNT("Niewłaściwa ilość statków.");
+
+        public final String value;
+
+
+        private ERROR_MESSAGE(String value) {
+            this.value = value;
+        }
+    }
+
     public enum HIT_RESULT
     {
         MISS,
@@ -78,29 +114,7 @@ public final class Consts {
 
     public static final String HIT_TILE_COLOR = "-fx-background-color: red;";
 
-    public static final String SHIP_PLACEMENT_INVALID = "\nZłe rozmieszczenie statków. Proszę skorygować rozmieszczenie bądź ilość statków.";
-
-    public static final String BOARD_SIZE_EXCEEDED = "Przekroczono granice planszy.";
-
-    public static final String TILE_NOT_FOUND = "Nie odnaleziono kafelka.";
-
-    public static final String INVALID_SHIP_SIZE = "Wprowadzono statek niezgodny z maksymalną długością, wynoszącą:" + SHIP_LENGTH.BIGGEST + ".";
-
-    public static final String INVALID_SHIP_COUNT = "Niewłaściwa ilość statków.";
-
     public static final String GAME_START = "Rozpoczęcie gry!";
-
-
-
-    public static final String SMALL_SHIP = "Pojedyńczy";
-
-    public static final String MEDIUM_SHIP = "Podwójny";
-
-    public static final String BIG_SHIP = "Potrójny";
-
-    public static final String BIGGEST_SHIP = "Poczwórny";
-
-    public static final String INVALID_SHIP = "Nieprawidłowy";
 
     public static final String GAME_END = "Koniec gry!";
 }

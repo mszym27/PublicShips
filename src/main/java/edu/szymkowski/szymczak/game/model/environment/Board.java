@@ -135,7 +135,7 @@ public class Board {
                         }
                     }
                     if (ship.getLength() > Consts.SHIP_LENGTH.BIGGEST.value) {
-                        throw new Exception(Consts.INVALID_SHIP_SIZE);
+                        throw new Exception(Consts.ERROR_MESSAGE.INVALID_SHIP_SIZE.value);
                     }
                     ship.setShipId(shipId);
                     shipId += 1;
@@ -144,7 +144,7 @@ public class Board {
             }
         }
         if (shipList.size() < 1) {
-            throw new Exception(Consts.INVALID_SHIP_COUNT);
+            throw new Exception(Consts.ERROR_MESSAGE.INVALID_SHIP_COUNT.value);
         }
         return shipList;
     }

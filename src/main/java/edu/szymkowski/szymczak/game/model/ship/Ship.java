@@ -33,19 +33,19 @@ public class Ship {
 
         if(mastsSize == Consts.SHIP_LENGTH.SMALL.value)
         {
-            return Consts.SMALL_SHIP;
+            return Consts.SHIP_NAME.SMALL.value;
         }
             else if (mastsSize == Consts.SHIP_LENGTH.MEDIUM.value) {
-                return Consts.MEDIUM_SHIP;
+                return Consts.SHIP_NAME.MEDIUM.value;
             }
                 else if (mastsSize == Consts.SHIP_LENGTH.BIG.value) {
-                    return Consts.BIG_SHIP;
+                    return Consts.SHIP_NAME.BIG.value;
                 }
                     else if (mastsSize == Consts.SHIP_LENGTH.BIGGEST.value) {
-                        return Consts.BIGGEST_SHIP;
+                        return Consts.SHIP_NAME.BIGGEST.value;
                     }
 
-        return Consts.INVALID_SHIP;
+        return Consts.SHIP_NAME.INVALID.value;
     }
 
     public void putMastAt(int x, int y) {
