@@ -1,6 +1,7 @@
 package edu.szymkowski.szymczak.game.flow;
 
 import edu.szymkowski.szymczak.game.controller.StageController;
+import edu.szymkowski.szymczak.game.util.consts.Consts;
 import javafx.scene.layout.GridPane;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,30 +31,30 @@ public class GameTests {
     }
 
     @Test
-    public void GameFlowTest1() {
-        Assertions.assertEquals(game.shotAt(0, 0), 1);
+    public void GameFlowHitCenterTest() {
+        Assertions.assertEquals(game.shotAt(0, 0), Consts.HIT_RESULT.HIT);
     }
 
     @Test
-    public void GameFlowTest2() {
+    public void GameFlowHitAndSunkCenterUpperMiddleTest() {
         game.shotAt(0, 0);
         game.shotAt(0, 1);
-        Assertions.assertEquals(game.shotAt(0, 2), 2);
+        Assertions.assertEquals(game.shotAt(0, 2), Consts.HIT_RESULT.HIT_AND_SUNK);
     }
 
     @Test
-    public void GameFlowTest3() {
-        Assertions.assertEquals(game.shotAt(0, 3), 0);
+    public void GameFlowMissUpperRightTest() {
+        Assertions.assertEquals(game.shotAt(0, 3), Consts.HIT_RESULT.MISS);
     }
 
     @Test
-    public void GameFlowTest4() {
+    public void GameFlowAlreadyHitCenterTest() {
         game.shotAt(0, 0);
-        Assertions.assertEquals(game.shotAt(0, 0), 3);
+        Assertions.assertEquals(game.shotAt(0, 0), Consts.HIT_RESULT.ALREADY_HIT);
     }
 
     @Test
-    public void GameFlowTest5() {
-        Assertions.assertEquals(game.shotAt(10, 0), 0);
+    public void GameFlowBigBoardMissTest() {
+        Assertions.assertEquals(game.shotAt(10, 0), Consts.HIT_RESULT.MISS);
     }
 }

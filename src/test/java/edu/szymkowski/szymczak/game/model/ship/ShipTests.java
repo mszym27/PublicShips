@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class ShipTests {
 
     @Test
-    public void ShipHitTest1() {
+    public void ShipHitUpperLeftTest() {
         Ship ship = new Ship();
         ship.putMastAt(0,0);
         ship.putMastAt(0,1);
@@ -16,7 +16,7 @@ public class ShipTests {
     }
 
     @Test
-    public void ShipHitTest2() {
+    public void ShipHitUpperLeftAndMiddleHitAndSunkTest() {
         Ship ship = new Ship();
         ship.putMastAt(0,0);
         ship.putMastAt(0,1);
@@ -26,7 +26,7 @@ public class ShipTests {
     }
 
     @Test
-    public void ShipHitTest3() {
+    public void ShipHitUpperLeftAndMiddleAlreadyHitTest() {
         Ship ship = new Ship();
         ship.putMastAt(0,0);
         ship.putMastAt(0,1);
@@ -36,7 +36,7 @@ public class ShipTests {
     }
 
     @Test
-    public void ShipHitTest4() {
+    public void ShipHitUpperLeftAndMiddleMissTest() {
         Ship ship = new Ship();
         ship.putMastAt(0,0);
         ship.putMastAt(0,1);
@@ -46,7 +46,7 @@ public class ShipTests {
     }
 
     @Test
-    public void ShipHitTest5() {
+    public void ShipHitTestUpperLeftAndRightMissTest() {
         Ship ship = new Ship();
         ship.putMastAt(0,0);
         ship.putMastAt(0,1);
@@ -57,7 +57,7 @@ public class ShipTests {
     }
 
     @Test
-    public void ShipSunkTest1() {
+    public void ShipSunkUpperLeftAndRightTest() {
         Ship ship = new Ship();
         ship.putMastAt(0,0);
         ship.putMastAt(0,1);
@@ -68,7 +68,7 @@ public class ShipTests {
     }
 
     @Test
-    public void ShipSunkTest2() {
+    public void ShipSunkMiddleTest() {
         Ship ship = new Ship();
         ship.putMastAt(0,0);
         ship.putMastAt(0,1);

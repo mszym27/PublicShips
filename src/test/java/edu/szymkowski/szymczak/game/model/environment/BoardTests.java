@@ -26,7 +26,7 @@ public class BoardTests {
     }
 
     @Test
-    public void ShipsPlacementTest1() {
+    public void ShipsPlacementMiddleTest() {
         GridPane gridPane = new GridPane();
         StageController.fillEmptyBoard(gridPane, BOARD_LENGTH, BOARD_WIDTH);
         Game.placeShipTile(gridPane, 0, 0);
@@ -46,7 +46,7 @@ public class BoardTests {
     }
 
     @Test
-    public void ShipsPlacementTest2() {
+    public void ShipsPlacementUpperRightTest() {
         GridPane gridPane = new GridPane();
         StageController.fillEmptyBoard(gridPane, BOARD_LENGTH, BOARD_WIDTH);
         Game.placeShipTile(gridPane, 0, 0);
@@ -66,7 +66,7 @@ public class BoardTests {
     }
 
     @Test
-    public void ShipsPlacementTest3() {
+    public void ShipsPlacementLowerRightTest() {
         GridPane gridPane = new GridPane();
         StageController.fillEmptyBoard(gridPane, BOARD_LENGTH, BOARD_WIDTH);
         Game.placeShipTile(gridPane, 0, 0);
@@ -86,7 +86,7 @@ public class BoardTests {
     }
 
     @Test
-    public void ShipsPlacementTest4() {
+    public void ShipsPlacementUpperMiddleTest() {
         GridPane gridPane = new GridPane();
         StageController.fillEmptyBoard(gridPane, BOARD_LENGTH, BOARD_WIDTH);
         Game.placeShipTile(gridPane, 4, 0);
@@ -106,7 +106,7 @@ public class BoardTests {
     }
 
     @Test
-    public void ShipsPlacementTest5() {
+    public void ShipsPlacementUpperLeftTest() {
         GridPane gridPane = new GridPane();
         StageController.fillEmptyBoard(gridPane, BOARD_LENGTH, BOARD_WIDTH);
         Game.placeShipTile(gridPane, 0, 4);
@@ -126,7 +126,7 @@ public class BoardTests {
     }
 
     @Test
-    public void ShipsDoublePlacementTest1() {
+    public void ShipsDoublePlacementTestEmptyBoardLowerRightTest() {
         GridPane gridPane = new GridPane();
         StageController.fillEmptyBoard(gridPane, BOARD_LENGTH, BOARD_WIDTH);
         Game.placeShipTile(gridPane, 4, 4);
@@ -139,46 +139,7 @@ public class BoardTests {
     }
 
     @Test
-    public void ShipsInvalidPlacementTest1() {
-        GridPane gridPane = new GridPane();
-        StageController.fillEmptyBoard(gridPane, BOARD_LENGTH, BOARD_WIDTH);
-        Game.placeShipTile(gridPane, 0, 0);
-        Game.placeShipTile(gridPane, 1, 1);
-
-        game = new Game(gridPane);
-
-        assert(!game.getBoard().isShipsPlacementValid());
-    }
-
-    @Test
-    public void ShipsInvalidPlacementTest2() {
-        GridPane gridPane = new GridPane();
-        StageController.fillEmptyBoard(gridPane, BOARD_LENGTH, BOARD_WIDTH);
-        Game.placeShipTile(gridPane, 0, 0);
-        Game.placeShipTile(gridPane, 0, 1);
-        Game.placeShipTile(gridPane, 0, 2);
-        Game.placeShipTile(gridPane, 1, 1);
-
-        game = new Game(gridPane);
-
-        assert(!game.getBoard().isShipsPlacementValid());
-    }
-
-    @Test
-    public void ShipsInvalidPlacementTest3() {
-        GridPane gridPane = new GridPane();
-        StageController.fillEmptyBoard(gridPane, BOARD_LENGTH, BOARD_WIDTH);
-        Game.placeShipTile(gridPane, 4, 4);
-        Game.placeShipTile(gridPane, 4, 3);
-        Game.placeShipTile(gridPane, 3, 4);
-
-        game = new Game(gridPane);
-
-        assert(!game.getBoard().isShipsPlacementValid());
-    }
-
-    @Test
-    public void ShipsValidPlacementTest1() {
+    public void ShipsValidPlacementTopRightTest() {
         GridPane gridPane = new GridPane();
         StageController.fillEmptyBoard(gridPane, BOARD_LENGTH, BOARD_WIDTH);
         Game.placeShipTile(gridPane, 0, 0);
@@ -192,7 +153,7 @@ public class BoardTests {
     }
 
     @Test
-    public void ShipsValidPlacementTest2() {
+    public void ShipsValidPlacementTopAndMiddleTest() {
         GridPane gridPane = new GridPane();
         StageController.fillEmptyBoard(gridPane, BOARD_LENGTH, BOARD_WIDTH);
         Game.placeShipTile(gridPane, 0, 0);
@@ -208,7 +169,7 @@ public class BoardTests {
     }
 
     @Test
-    public void ShipsValidPlacementTest3() {
+    public void ShipsValidPlacementTestLeftAndRightColumns() {
         GridPane gridPane = new GridPane();
         StageController.fillEmptyBoard(gridPane, BOARD_LENGTH, BOARD_WIDTH);
         Game.placeShipTile(gridPane, 4, 2);
@@ -224,7 +185,7 @@ public class BoardTests {
     }
 
     @Test
-    public void ShipsListValidTest1() {
+    public void ShipsListValidTestUpperRightAndMiddle() {
         GridPane gridPane = new GridPane();
         StageController.fillEmptyBoard(gridPane, BOARD_LENGTH, BOARD_WIDTH);
         Game.placeShipTile(gridPane, 4, 2);
@@ -251,7 +212,7 @@ public class BoardTests {
     }
 
     @Test
-    public void ShipsListValidTest2() {
+    public void ShipsListValidTestLowerLeft() {
         GridPane gridPane = new GridPane();
         StageController.fillEmptyBoard(gridPane, BOARD_LENGTH, BOARD_WIDTH);
         Game.placeShipTile(gridPane, 0, 1);
@@ -278,7 +239,7 @@ public class BoardTests {
     }
 
     @Test
-    public void ShipsListValidTest3() {
+    public void ShipsListValidTestLeft() {
         GridPane gridPane = new GridPane();
         StageController.fillEmptyBoard(gridPane, BOARD_LENGTH, BOARD_WIDTH);
         Game.placeShipTile(gridPane, 0, 0);
@@ -304,7 +265,7 @@ public class BoardTests {
     }
 
     @Test
-    public void ShipsListValidTest4() {
+    public void ShipsListValidTestUpperRight() {
         GridPane gridPane = new GridPane();
         StageController.fillEmptyBoard(gridPane, BOARD_LENGTH, BOARD_WIDTH);
         Game.placeShipTile(gridPane, 0, 0);
@@ -330,7 +291,7 @@ public class BoardTests {
     }
 
     @Test
-    public void ShipsListInvalidTest1() {
+    public void ShipsListInvalidTestFilledEmptyBoard() {
         GridPane gridPane = new GridPane();
         StageController.fillEmptyBoard(gridPane, BOARD_LENGTH, BOARD_WIDTH);
 

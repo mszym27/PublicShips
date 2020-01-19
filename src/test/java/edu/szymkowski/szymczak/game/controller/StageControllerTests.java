@@ -9,5 +9,5 @@ class StageControllerTests {
         public static void setup() {}
 
         @Test
-        public void stageControllerTest1() {}
+        public void stageControllerTest() {}
 }
