@@ -14,6 +14,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.text.TextFlow;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class StageController {
 
 
@@ -84,6 +87,8 @@ public class StageController {
 
     private boolean isBattle = false;
 
+    private final Logger logger = LoggerFactory.getLogger(StageController.class);
+
 
     public StageController() {}
 
@@ -127,11 +132,11 @@ public class StageController {
             messageBox.appendText(Consts.ERROR_MESSAGE.SHIP_PLACEMENT_INVALID.value);
         }
 
-        System.out.println(actionEvent.toString());
+        logger.info(actionEvent.toString());
     }
 
     public void handleExitButtonAction(ActionEvent actionEvent) {
-        System.out.println(actionEvent.toString());
+        logger.info(actionEvent.toString());
         System.exit(0);
     }
 
@@ -146,7 +151,7 @@ public class StageController {
 
     public void handleStatisticsButtonAction(ActionEvent actionEvent) {
         game.getScore().openScore();
-        System.out.println(actionEvent.toString());
+        logger.info(actionEvent.toString());
     }
 
     public void handleApplyPlacementModeButtonAction(ActionEvent actionEvent) {
@@ -155,7 +160,7 @@ public class StageController {
         cancelPlacementModeButton.setDisable(false);
         applyPlacementModeButton.setDisable(true);
         checkBoardAvailability();
-        System.out.println(actionEvent.toString());
+        logger.info(actionEvent.toString());
     }
 
     public void handleCancelPlacementModeButtonAction(ActionEvent actionEvent) {
@@ -164,7 +169,7 @@ public class StageController {
         applyPlacementModeButton.setDisable(false);
         cancelPlacementModeButton.setDisable(true);
         checkBoardAvailability();
-        System.out.println(actionEvent.toString());
+        logger.info(actionEvent.toString());
     }
 
     private void checkBoardAvailability() {
@@ -241,7 +246,7 @@ public class StageController {
         boardLengthSpinner.setDisable(true);
         boardWidthSpinner.setDisable(true);
         checkBoardAvailability();
-        System.out.println(actionEvent.toString());
+        logger.info(actionEvent.toString());
     }
 
     public void handleCancelBoardSizeButtonAction(ActionEvent actionEvent) {
@@ -250,7 +255,7 @@ public class StageController {
         boardLengthSpinner.setDisable(false);
         boardWidthSpinner.setDisable(false);
         checkBoardAvailability();
-        System.out.println(actionEvent.toString());
+        logger.info(actionEvent.toString());
     }
 
     public void handleAutoCheckBoxAction(ActionEvent actionEvent) {
@@ -260,7 +265,7 @@ public class StageController {
         else {
             manualCheckBox.setSelected(true);
         }
-        System.out.println(actionEvent.toString());
+        logger.info(actionEvent.toString());
     }
 
     public void handleManualCheckBoxAction(ActionEvent actionEvent) {
@@ -270,7 +275,7 @@ public class StageController {
         else {
             autoCheckBox.setSelected(true);
         }
-        System.out.println(actionEvent.toString());
+        logger.info(actionEvent.toString());
     }
 
     public void handleApplyShipSizeButtonAction(ActionEvent actionEvent) {
@@ -278,7 +283,7 @@ public class StageController {
         cancelShipSizeButton.setDisable(false);
         disableShipSizeSpinners();
         checkBoardAvailability();
-        System.out.println(actionEvent.toString());
+        logger.info(actionEvent.toString());
     }
 
     private void disableShipSizeSpinners() {
@@ -293,7 +298,7 @@ public class StageController {
         applyShipSizeButton.setDisable(false);
         enableShipSizeSpinners();
         checkBoardAvailability();
-        System.out.println(actionEvent.toString());
+        logger.info(actionEvent.toString());
     }
 
     private void enableShipSizeSpinners() {
@@ -311,7 +316,7 @@ public class StageController {
         cancelPlacementButton.setDisable(false);
         playButton.setDisable(false);
         board.setDisable(true);
-        System.out.println(actionEvent.toString());
+        logger.info(actionEvent.toString());
     }
 
     public void handleCancelPlacementButtonAction(ActionEvent actionEvent) {
@@ -322,7 +327,7 @@ public class StageController {
         applyPlacementButton.setDisable(false);
         playButton.setDisable(true);
         board.setDisable(false);
-        System.out.println(actionEvent.toString());
+        logger.info(actionEvent.toString());
     }
 
     public void handleBoardMouseClicked(MouseEvent mouseEvent) {
@@ -365,10 +370,10 @@ public class StageController {
                     }
                 }
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+                logger.error(e.getMessage());
             }
         }
-        System.out.println(mouseEvent.toString());
+        logger.info(mouseEvent.toString());
     }
 
     private TextFlow getTile(MouseEvent mouseEvent) throws Exception {

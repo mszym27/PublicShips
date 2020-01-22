@@ -90,7 +90,7 @@ public class Ship {
 
     public boolean isSunk() {
         for (Table.Cell<Integer, Integer, Integer> cell : masts.cellSet()) {
-            if (cell.getValue() == Consts.BOARD_TILE.SHIP_TILE.value) {
+            if (cell.getValue().equals(Consts.BOARD_TILE.SHIP_TILE.value)) {
                 return false;
             }
         }

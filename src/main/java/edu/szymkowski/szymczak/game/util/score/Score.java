@@ -1,5 +1,8 @@
 package edu.szymkowski.szymczak.game.util.score;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,6 +17,8 @@ public class Score {
     List<String> history;
 
     private String fileName;
+
+    private final Logger logger = LoggerFactory.getLogger(Score.class);
 
     public Score() {
         history = new LinkedList<>();
@@ -41,7 +46,7 @@ public class Score {
             }
             printWriter.close();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            logger.error(e.getStackTrace().toString());
         }
     }
 
@@ -62,7 +67,7 @@ public class Score {
         try {
             pb.start();
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getStackTrace().toString());
         }
     }
 }
