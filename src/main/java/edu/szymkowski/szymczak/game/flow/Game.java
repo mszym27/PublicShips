@@ -12,6 +12,9 @@ import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.TextFlow;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -26,6 +29,7 @@ public class Game {
 
     private Score score;
 
+    private final Logger logger = LoggerFactory.getLogger(Game.class);
 
     public Game() {
         score = new Score();
@@ -93,7 +97,7 @@ public class Game {
             try {
                 ships = board.getShipsList();
             } catch (Exception e) {
-                e.printStackTrace();
+                logger.error(e.getStackTrace().toString());
                 return false;
             }
         }
